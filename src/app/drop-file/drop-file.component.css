@@ -1,0 +1,46 @@
+::ng-deep.ngx-file-drop__drop-zone {
+    border-radius: 30px;
+    height: 160px !important;
+    margin: auto;
+    width: 750px;
+    background: #FFFFFF;
+    border: 2px dashed #BBBFC8 !important;
+    padding: 5px;
+    position: relative;
+}
+
+.dragFile {
+    font-size: 20px;
+    color: #BBBFC8;
+    letter-spacing: 1px;
+    font-size: 20px;
+    padding-top: 86px;
+}
+
+.browse {
+    color: #f25b87;
+    font-size: 22px;
+    letter-spacing: 1px;
+    padding-left: 5px;
+    border: none;
+    background-color: #fff;
+    padding-top: 85px;
+}
+
+.uploadDocImg {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+}
+
+.center {
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+    letter-spacing: normal;
+    display: flex;
+    justify-content: center;
+}
+
+.fileResult {
+    position: absolute;
+    top: 118px;
+}

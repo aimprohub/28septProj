@@ -1,0 +1,100 @@
+#col-img {
+    height: 120vh;
+    background-position: center;
+    background-size: cover;
+    /* background-image: url(../../../assets/mom-baby.jpg); */
+}
+
+.img-gradient {
+    height: 120vh;
+    margin-left: auto;
+    width: 9vw;
+    background: linear-gradient(to left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 58, 0) 100%);
+}
+
+.fa-chevron-left:before {
+    color: #f25b87;
+}
+
+.mat-icon {
+    color: #7e7ca8;
+    cursor: pointer;
+}
+
+#form-container {
+    text-align: center;
+    /* top: 20%;
+  position: relative; */
+}
+
+.login-head {
+    /* padding-top: 35px; */
+    font-family: DM SansSce Regular;
+    font-weight: 500;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+    width: 300px;
+    position: relative;
+    border-radius: 37px !important;
+}
+
+.btn-login {
+    width: 300px;
+    height: 7vh;
+    background-color: #f25b87;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.p-login-here {
+    color: #7e7ca8;
+    font-size: 18px;
+    font-family: DM SansSce Regular;
+}
+
+.p-login-here a {
+    color: #f25b87;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: DM SansSce medium;
+}
+
+.example-margin {
+    color: #7e7ca8;
+}
+
+::ng-deep .mat-form-field input,
+::placeholder,
+.mat-form-field,
+::ng-deep .mat-form-field-label {
+    color: #7e7ca8 !important;
+    /* font-size: 18px; */
+}
+
+.invalid-message {
+    color: red;
+    font-size: 20px;
+}
+
+.modal-body img {
+    height: 50px;
+}
+
+.user-created-p {
+    margin: 35px;
+}
+
+@media only screen and (max-width: 600px) {
+    #col-img {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    #col-img {
+        display: none !important;
+    }
+}

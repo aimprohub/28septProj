@@ -1,0 +1,366 @@
+<div class="container-fluid">
+
+    <div class="row row1 ">
+        <h2 class="poolHead">Pooling</h2>
+
+        <div class="col-6 col1 py-4">
+            <button type="button" class="btn addPool btn-md mb-2" (click)="openNewPoolModal()"><i class="fa fa-plus"
+                aria-hidden="true"></i> Add New Pool</button>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-striped table-responsive">
+            <thead>
+                <tr>
+
+                    <th *ngFor="let header of poolHeader" class="px-4">
+                        {{header}}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr *ngFor="let p of poolData |filter:searchTerm">
+                    <td class="px-4">{{p.mixing_date | date:"dd/MM/yyyy"}}</td>
+                    <td class="px-4 total_volume">{{p.total_volume}}</td>
+                    <td class="px-4 testing_lab" *ngIf="p.testing_lab != null">{{p.testing_lab}}</td>
+                    <td class="px-4 test_sample_sent_date" *ngIf="p.test_sample_sent_date != null">{{p.test_sample_sent_date| date:"dd/MM/yyyy"}}</td>
+                    <td class="px-4 test_result" *ngIf="p.test_result != null">
+                        <span *ngIf="p.test_result == true else notAcceptable">
+                            Acceptable
+                        </span>
+                        <ng-template #notAcceptable>
+                            <span *ngIf="p.test_result != null">
+                               Not Acceptable
+                           </span>
+                        </ng-template>
+                    </td>
+                    <td class="px-4" *ngIf="p.test_result ==  null">
+                        <button *ngIf="p.testing_lab == null else TestResult" class="btn-lg addTest" (click)="showAddTest(p.id)">
+                            Add Test
+                        </button>
+
+                        <ng-template #TestResult>
+                            <button class="btn-lg addResult" (click)="addTestResult(p.id)">
+                                Add Result
+                            </button>
+                        </ng-template>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" bsModal #newPool="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container d-flex justify-content-center">
+                    <form #productdata="ngForm">
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Mixing Date</label>
+                                </div>
+
+                                <div class="col-6 col1">
+                                    <input type="date" name="mixing_date" class="form-control" [(ngModel)]="createPoolModel.mixing_date" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Total Units</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="number" min="1" name="total_units" class="form-control" [(ngModel)]="createPoolModel.total_units" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Total Volume</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="number" min="1" name="total_volume" class="form-control" [(ngModel)]="createPoolModel.total_volume" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Test Sample Quantity</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="createPoolModel.test_sample_qty">
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Test Sample Send Date</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="createPoolModel.test_sample_sent_date">
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Staff</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="text" name="staff_id" class="form-control" [(ngModel)]="selectedStaffName" (click)="showDonorStaffModal()" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Testing Lab</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="createPoolModel.testing_lab_id">
+                                        <option value="" selected ></option>
+                                        
+                                        <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Raw Collection Id</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="text" class="form-control" (click)="openRawCollection()" name="collectionCheckBoxString" [(ngModel)]="collectionCheckBoxString" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="error-msg" *ngIf="isErrorMsgVisible">
+                            <h2>
+                                {{errorMsg}}
+                            </h2>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="newPool.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="createPool()">Save</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- TEST RESULT -->
+<div class="modal fade" bsModal #testResult="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="container d-flex justify-content-center">
+                    <form #productdata="ngForm">
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6">
+                                    <label>Test Certificate Number</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="text" name="test_cert_no" class="form-control" [(ngModel)]="testResultModel.test_cert_no">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6">
+                                    <label>Test Result Date</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="date" name="test_result_date" class="form-control" [(ngModel)]="testResultModel.test_result_date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6">
+                                    <label>Test Result</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <select name="test_result" id="test_result" [(ngModel)]="testResultModel.test_result">
+                                <option value=true>Pass</option>
+                                <option value=false>Fail</option>
+                              </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6">
+                                    <label>Test Remarks</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="text" name="test_remarks" class="form-control" [(ngModel)]="testResultModel.test_remarks">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="testResult.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="setTestResult()">Update</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Raw Collection -->
+<div class="modal fade" bsModal #rawCollectionModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content pt-5">
+            <div class="modal-body text-center">
+                <div class="col-lg-12">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchTerm">
+                </div>
+
+                <table class="table table-hover table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let header of rawCollectionHeader; index as i">
+                                {{header}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of rawCollectionData">
+                            <td>
+                                <input type="checkbox" name="collectionCheckBox" id={{data.id}} (click)="makeRawSelection(data.id)">
+                            </td>
+                            <td>{{data.donor_full_name}}</td>
+                            <td>{{data.receiving_site}}</td>
+                            <td>{{data.staff_name}}</td>
+                            <td>{{data.volume_collected}}</td>
+                            <td>{{data.collection_date | date:"dd/MM/yyyy"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" (click)="cancelRawSelection()" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="rawCollectionModal.hide()">Add</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- STAFF MODAL -->
+<div class="modal fade" bsModal #staffDetailModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="col-sm">
+                    <input type="text" name="search" placeholder="search here" [(ngModel)]="searchString">
+                </div>
+
+                <table class="table table-hover table-striped text-left">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th *ngFor="let header of staffHeader; index as i">{{header}}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr *ngFor="let p of staffData | filter : searchString">
+                            <td>
+                                <input type="radio" id="html" name="rdo_id" value={{p.id}} [(ngModel)]="selectedStaff">
+                            </td>
+                            <td>{{p.hosp_id}}</td>
+                            <td>{{p.staff_full_name}}</td>
+                            <td>{{p.staff_contact}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="staffDetailModal.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="selectIdAndCloseStaffModal()">Select</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- add test -->
+
+<div class="modal fade" bsModal #addTest="bs-modal" tabindex="-1" role="dialog" aria-labelledby="dialog-static-name" [config]="{ keyboard: false, backdrop: 'static'}">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container d-flex justify-content-center">
+                    <form #poolTest="ngForm">
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Test Sample Quantity</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="number" min="1" name="test_sample_qty" class="form-control" [(ngModel)]="poolResultModal.test_sample_qty" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Test Sample Send Date</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <input type="date" name="test_sample_sent_date" class="form-control" [(ngModel)]="poolResultModal.test_sample_sent_date" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row row1">
+                                <div class="col-6 col1">
+                                    <label>Testing Lab</label>
+                                </div>
+                                <div class="col-6 col1">
+                                    <select name="testing_lab_id" id="testing_lab_id" class="form-control" [(ngModel)]="poolResultModal.testing_lab_id" required>
+                                        <option value="" selected ></option>
+                                        <option *ngFor = "let labs of testingLabs" value={{labs.id}}>{{labs.name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg modalBtn1" data-bs-dismiss="modal" (click)="addTest.hide()">Close</button>
+                <button type="button" class="btn btn-lg modalBtn2" (click)="addPoolTest()">Update</button>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="container-fluid donorBox">
+    <h1 class="DonorText">DONOR'S PROFILE</h1>
+</div>
+
+
+
+
+<div class="container-fluid main-container">
+    <div class="row profileBox">
+        <div class="d-flex justify-content-center">
+            <div class="col-md-6">
+                <div class="p-3 py-0">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right ProfileText">Your Profile</h4>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12 py-3 colBind"><label class="labels">FullName</label> : {{fullName}} </div>
+
+
+                        <div class="col-md-12 py-3 colBind"><label class="labels">Contact Number</label> : {{contact}}
+                        </div>
+
+                        <div class="col-md-12 py-3 colBind"><label class="labels">Email ID</label> : {{email_id}}</div>
+                        <div class="col-md-12 py-3 colBind"><label class="labels">Date of Birth</label> : {{dob}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 ">
+                <div class="p-3 py-0">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right ProfileText">CONTACT INFORMATION</h4>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-12 py-3 colBind"><label class="labels">Address</label> : {{address}}</div>
+                        <div class="col-md-12 py-3 colBind"><label class="labels">City</label> : {{city}}</div>
+                        <div class="col-md-12 py-3 colBind"><label class="labels">Taluka</label> : {{taluka}}</div>
+                        <div class="col-md-12 py-3 colBind"><label class="labels">Disrict</label> : {{district}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="MedicalForm">
+        <div>
+            <h4 class="heading1">MEDICAL HISTORY</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12 py-3 colBind">
+                <label>Cigarettes/tobacco form of nicotine/alcohol consumption in past 6</label> : {{nicotine_alchol_consumption}}
+            </div>
+            <div class="col-md-12 py-3 colBind">
+                <label>Received blood transfusion or transfusion of any component of blood ?</label> : {{blood_transfusion}}
+            </div>
+            <div class="col-md-12 py-3 colBind">
+                <label>Currently have fever or any rashes, especially around breast area ?</label> : {{fever_or_rashes}}
+            </div>
+            <div class="col-md-12 py-3 colBind">
+                <label>Sufering from any other acute illness ?</label> : {{acute_disease}}
+            </div>
+            <div class="col-md-12 py-3 colBind">
+                <label>Test Reports within last 6 months for HIV, HBAg
+                    and VDRL available</label> : {{hiv_hbag_disease}}
+            </div>
+
+        </div>
+    </form>
+    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" (click)="logoutDonorProfile()">Logout</button>
+    </div>
+</div>

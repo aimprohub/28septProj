@@ -1,0 +1,313 @@
+.navbar {
+    background-color: #fff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.nav-holder {
+    padding: 10px 27px 0px 50px;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.logo1 {
+    font-size: 25px;
+    padding-left: 30px;
+    font-family: DM SansSce Medium;
+}
+
+.active .nav-link {
+    padding-bottom: 20px;
+    border-bottom: 3px solid #F25B87;
+}
+
+.nav-link {
+    color: #000 !important;
+    font-size: 20px;
+    padding-left: 20px;
+    font-family: DM SansSce Medium;
+}
+
+.nav-item {
+    padding-right: 40px;
+}
+
+.loginButton {
+    width: 200px;
+    border-radius: 20px;
+    color: #f25b87 !important;
+    border: 2px solid #f25b87;
+    padding-left: 30px !important;
+    cursor: pointer;
+}
+
+.banner-parent-container {
+    height: 73vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    /* background-image: url(/assets/home-image.jpg); */
+}
+
+.moto-tagline {
+    font-size: 20px;
+    color: #0A2463 !important;
+    font-family: DM SansSce Regular;
+    text-align: center;
+    border: none;
+}
+
+.moto-tagline .card-body {
+    padding-top: 50px;
+}
+
+.moto-tagline .card-title {
+    padding: 0px;
+    font-size: 30px;
+    color: #0A2463 !important;
+    font-family: DM SansSce Medium;
+    line-height: 40px;
+}
+
+.moto-tagline .card-text {
+    line-height: normal;
+    padding: 15px 0px 15px;
+}
+
+.btn-moto-tagline {
+    background-color: #F25B87;
+    color: #fff;
+    border: none;
+    width: 225px;
+    height: 54px;
+    border-radius: 250px;
+}
+
+.btn-moto-tagline img {
+    height: 19.51px;
+    width: 20px;
+}
+
+.head-whyDonate {
+    font-family: DM SansSce Medium;
+}
+
+.whyDonate {
+    text-align: center;
+    font-family: DM SansSce Regular;
+}
+
+.head-whyDonate {
+    font-size: 32px;
+    padding-top: 25px;
+}
+
+.why-donate-content {
+    color: #7E7CA8;
+    line-height: 31px;
+    text-align: center;
+}
+
+.heart-line {
+    display: flex;
+    justify-content: center;
+    margin-top: 75px;
+    align-items: center;
+}
+
+.why-donate-heart {
+    height: 25px;
+}
+
+.line {
+    height: 3px;
+    background-color: #f25b87;
+}
+
+
+/* End of why Donate */
+
+
+/* Start of  card quotes */
+
+.doctor-recipient {
+    padding: 97px 0pc 45px;
+    font-family: DM SansSce Regular;
+}
+
+.doctor-recipient .card-title {
+    font-size: 30px;
+    font-family: DM;
+    font-family: DM SansSce Medium;
+}
+
+.para2 {
+    font-size: 24px;
+    line-height: 31px;
+    color: #F25B87;
+}
+
+.quotes {
+    height: 89px;
+}
+
+.Source-Title {
+    font-size: 24px;
+    line-height: 31px;
+}
+
+footer {
+    background-color: #F25B87;
+    color: #fff;
+}
+
+.footer-list {
+    list-style-type: none;
+}
+
+.footer-list li {
+    font-family: DM SansSce Regular;
+    font-size: 20px;
+}
+
+.footer-list-header {
+    font-family: DM SansSce Medium;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.footer-icon {
+    height: 20px;
+    margin-right: 14px;
+}
+
+.footer-contact-icons {
+    justify-content: space-between;
+}
+
+.li-get-in-touch {
+    font-size: 18px !important;
+}
+
+.footer-contact-icons {
+    width: 150px;
+}
+
+.footer-misc-cpyrgt {
+    padding-top: 60px;
+    justify-content: space-between;
+    font-size: 18px;
+    text-align: center;
+}
+
+@media (min-width:1025px) {
+    .navbar {
+        height: 112px;
+    }
+    .banner-parent-container {
+        height: 99vh;
+        width: 100%;
+    }
+    .moto-tagline {
+        position: absolute;
+        bottom: 11vh;
+        left: calc(100% - 500px);
+        width: 27rem;
+        height: 25rem;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+    .whyDonate {
+        padding-top: 64px;
+    }
+    .why-donate-content {
+        padding-top: 42px;
+        font-size: 25px;
+    }
+    .para2 {
+        padding: 6px 89px 0px;
+    }
+    .footer-misc-bord {
+        border-left: 2px solid;
+    }
+    .footer-cpyrgt {
+        text-align: right;
+    }
+    .footer-container {
+        padding: 80px;
+    }
+    .footer-list li {
+        padding: 16px 16px;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    .show {
+        height: 100vh;
+    }
+    .banner-parent-container {
+        height: 51vh;
+        width: 100%;
+    }
+    .line {
+        height: 3px;
+    }
+    .whyDonate {
+        padding-top: 40px;
+    }
+    .why-donate-content {
+        padding-top: 30px;
+        font-size: 25px;
+    }
+    .footer-container {
+        padding: 30px;
+    }
+    .footer-list {
+        padding: 0px;
+    }
+    .footer-list li {
+        padding: 16px 0px;
+    }
+    .navbar-collapse {
+        height: 100vh;
+    }
+    .footer-misc {
+        padding-bottom: 20px;
+    }
+    .footer-misc-bord {
+        padding-bottom: 20px;
+    }
+    .footer-cpyrgt {
+        padding-top: 20px;
+    }
+    .footer-misc-cpyrgt {
+        padding-left: 33px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .toggle-button {
+        display: flex;
+        flex-direction: column;
+    }
+    .nav-link {
+        padding: 20px;
+    }
+    .nav-link .loginButton {
+        margin: 5px;
+    }
+    .navbar {
+        background-color: #fff;
+        width: 100%;
+    }
+    .active .nav-link {
+        border-bottom: none;
+    }
+    .logo1 {
+        width: 200px;
+        height: 57px;
+    }
+
+}

@@ -1,0 +1,138 @@
+.row1 {
+    padding: 10px;
+    text-align: left;
+}
+
+label {
+    font-size: 18px;
+    color: #7E7CA8;
+    letter-spacing: 1px;
+}
+
+form {
+    text-align: start;
+    background-color: #fff;
+    padding-top: 20px;
+}
+
+input[type=number],
+input[type=text],
+input[type=date],
+input[type=time],
+input[type=submit],
+select {
+    width: 30VW;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #7E7CA8;
+    border-radius: 20px;
+    color: #7E7CA8;
+    font-size: 18px;
+    outline: 0;
+}
+
+.col1 {
+    display: flex;
+    justify-content: left;
+}
+
+.addPool {
+    background-color: #f25b87 !important;
+    color: #fff;
+    font-size: 20px;
+}
+
+.poolHead {
+    font-size: 25px;
+    color: #f25b87;
+}
+
+.modalBtn1 {
+    background: none;
+    border: 1px solid #f25b87;
+    font-size: 20px;
+}
+
+.modalBtn2 {
+    background-color: #f25b87;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    margin-left: 30px;
+}
+
+.addResult {
+    background-color: #f25b87;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+}
+
+.addTest {
+    background: none;
+    border: 1px solid #f25b87;
+    font-size: 18px;
+}
+
+.modal-footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    padding: .75rem;
+    /* border-top: 1px solid; */
+}
+
+.error-msg {
+    color: red;
+    text-align: center;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .col1 {
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        justify-content: left;
+    }
+    input[type=text],
+    input[type=date],
+    input[type=time],
+    select {
+        width: 85VW;
+        padding: 8px;
+        border: 1px solid #7E7CA8;
+        border-radius: 20px;
+        color: #7E7CA8;
+        font-size: 20px;
+        outline: 0;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .col1 {
+        width: 100%;
+        margin-top: 0;
+    }
+    input[type=text],
+    input[type=date],
+    input[type=time],
+    input[type=submit],
+    select {
+        width: 85VW;
+        padding: 8px;
+        border: 1px solid #7E7CA8;
+        border-radius: 20px;
+        color: #7E7CA8;
+        font-size: 20px;
+        outline: 0;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+}
