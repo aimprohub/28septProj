@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static('./dist/lacto'));
+app.use(express.static('./dist/MILKBANK_CPY'));
 
 app.get('/*', (req, res) =>
     res.sendFile('index.html', { root: 'dist/lacto/' }),
